@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/meetin_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    >
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/meeting_avatar"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:contentPadding="8dp"
+        tools:background="@color/tokyo_color"
+        tools:src="@drawable/tokyo_drawable"
+        android:theme="@style/ShapeAppearance.M3.Sys.Shape.Corner.Full"
+        />
+
+    <TextView
+        android:id="@+id/meeting_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/black"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintBottom_toTopOf="@id/meeting_email"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:lines="1"
+        app:layout_constraintEnd_toStartOf="@id/meetings_item_delete_button"
+        app:layout_constraintStart_toEndOf="@id/meeting_avatar"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Réunion A - 14h00 - Mario"
+        />
+
+    <TextView
+        android:id="@+id/meeting_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/meeting_avatar"
+        app:layout_constraintTop_toBottomOf="@id/meeting_title"
+        app:layout_constraintEnd_toStartOf="@id/meetings_item_delete_button"
+        tools:text="email@mail.com"
+        />
+
+    <ImageView
+        android:id="@+id/meetings_item_delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="?selectableItemBackground"
+        android:contentDescription="@string/delete_meeting"
+        android:padding="16dp"
+        app:tint="@color/space_cadet_blue"
+        android:src="@drawable/ic_baseline_delete_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:dividerInsetStart="16dp"
+        app:dividerInsetEnd="16dp"
+        app:dividerColor="@color/space_cadet_blue"
+        app:layout_constraintTop_toBottomOf="@id/meeting_avatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

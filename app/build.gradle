@@ -1,0 +1,108 @@
+plugins {
+    id 'com.android.application'
+    id 'org.barfuin.gradle.jacocolog' version '2.0.0'
+    id 'jacoco'
+
+}
+
+android {
+    namespace 'com.despair.corp.monokouma.mafuckingreufinal'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.despair.corp.monokouma.mafuckingreufinal"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'androidx.arch.core:core-testing:2.1.0'
+    testImplementation 'org.mockito:mockito-core:3.11.1'
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
+
+// open JaCoCo report after generation
+def openReport(htmlOutDir) {
+    final reportPath = "$htmlOutDir\\index.html"
+
+    println "HTML Report: $reportPath"
+
+}
+
+jacoco {
+    toolVersion = "0.8.7"
+}
+
+tasks.withType(Test) {
+    jacoco {
+        includeNoLocationClasses = true
+        excludes = ['jdk.internal.*'] // Allows it to run on Java 11
+    }
+}
+
+task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
+
+    doLast {
+        openReport layout.buildDirectory.dir("reports/jacoco/$name/html").get().asFile
+    }
+
+    reports {
+        xml.enabled(true)
+        html.enabled(true)
+        csv.enabled(true)
+    }
+
+    def fileFilter = [
+            '**/R.class',
+            '**/R$*.class',
+            '**/BuildConfig.*',
+            '**/Manifest*.*',
+            '**/*_Impl*.*', // Room implementations
+            '**/*Binding.*',
+            '**/*Fragment.*',
+            '**/*Activity.*',
+            '**/*Adapter.*',
+            '**/*DiffCallback.*',
+            '**/*ViewHolder.*',
+            '**/*ViewModelFactory.*',
+            '**/*Entity.*',
+            '**/*AppDatabase*.*',
+            '**/BuildConfigResolver.*',
+            '**/MainThreadExecutor.*',
+            '**/*Test*.*',
+            'android/**/*.*'
+    ]
+    def debugTree = fileTree(dir: "$project.buildDir/intermediates/javac/debug", excludes: fileFilter)
+    def mainSrc = "$project.projectDir/src/main/java"
+
+    sourceDirectories.setFrom(files([mainSrc]))
+    classDirectories.setFrom(files([debugTree]))
+    executionData.setFrom(fileTree(dir: project.buildDir, includes: [
+            'jacoco/testDebugUnitTest.exec', 'outputs/code_coverage/debugAndroidTest/connected/**/*.ec'
+    ]))
+}

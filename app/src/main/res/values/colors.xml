@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="lavender_web">#EAE8FF</color>
+    <color name="space_cadet_blue">#2D3142</color>
+    <color name="baby_blue_eyes">#B0D7FF</color>
+    <color name="silver_metallic">#ADACB5</color>
+    <color name="light_gray">#D8D5DB</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="tokyo_color">#eb5497</color>
+    <color name="paris_color">#c7c7c7</color>
+    <color name="new_york_color">#0178C9</color>
+    <color name="pekin_color">#4ca787</color>
+    <color name="singapor_color">#e0643a</color>
+    <color name="chicago_color">#bbdcf0</color>
+
+    <color name="berlin_color">#4e3b43</color>
+    <color name="moscow_color">#A11B24</color>
+    <color name="sydney_color">#e8bc45</color>
+    <color name="rio_color">#ec72b6</color>
+</resources>

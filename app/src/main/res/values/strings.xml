@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">MaFuckingReuFinal</string>
+    <string name="meeting_toolbar_title">Mes réunions</string>
+    <string name="fab_content_description">Créer une réunion</string>
+    <string name="delete_meeting">Delete meeting</string>
+    <string name="cr_er_une_r_union">Créer une réunion</string>
+    <string name="entrez_le_nom_de_la_r_union">Entrez le nom de la réunion</string>
+    <string name="ajoutez_un_participants">Ajoutez un participants</string>
+    <string name="lamzone">\@lamzone.fr</string>
+    <string name="choisissez_une_salle_de_r_union">Choisissez une salle de réunion</string>
+
+
+    <string name="paris">Paris</string>
+    <string name="new_york">New-York</string>
+    <string name="tokyo">Tokyo</string>
+    <string name="pekin">Pékin</string>
+    <string name="singapor">Singapour</string>
+    <string name="chicago">Chicago</string>
+    <string name="berlin">Berlin</string>
+    <string name="moscow">Moscou</string>
+    <string name="sydney">Sydney</string>
+    <string name="rio_de_janeiro">Rio de Janeiro</string>
+    <string name="participants">Participants :</string>
+    <string name="filtrer_par_salles">Filtrer par salles</string>
+    <string name="hour_filter">hour_filter</string>
+    <string name="filtrer_par_heures">Filtrer par heures</string>
+    <string name="room_filter">room_filter</string>
+
+    <string name="meeting_title">%s - %s - %s</string>
+    <string name="error_meeting_name">Indiquez un nom pour cette réunion</string>
+    <string name="error_participants">Indiquez au moins 1 participant</string>
+    <string name="error_room">Choisissez une salle de réunion</string>
+    <string name="choississez_une_heure_pour_la_r_union">Choississez une heure pour la réunion</string>
+    <string name="cr_er">Créer</string>
+    <string name="chose_meeting_hour">Choisissez une heure pour la réunion</string>
+    <string name="chose">Choisir</string>
+    <string name="cancel">Annuler</string>
+    <string name="meeting_hour">Heure de la réunion :</string>
+    <string name="meeting_running">Reunion en cours</string>
+    <string name="meeting_finished">Réunion terminée.</string>
+    <string name="meeting_start_at">La réunion commence dans : %s h.</string>
+</resources>

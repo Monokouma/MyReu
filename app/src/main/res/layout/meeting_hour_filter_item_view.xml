@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.button.MaterialButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/meeting_hour_filter_tv_hour"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:fontFamily="@font/alata"
+    tools:text="17h00"
+    android:textAlignment="center"
+    android:backgroundTint="@color/lavender_web"
+    android:textColor="@color/space_cadet_blue"
+    android:layout_margin="8dp"
+    />

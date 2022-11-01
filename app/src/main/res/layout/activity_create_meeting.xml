@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.create.CreateMeetingActivity"
+    android:background="@color/lavender_web"
+    >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/create_meeting_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:navigationIcon="@drawable/ic_baseline_keyboard_backspace_24"
+            />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/create_meeting_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:fontFamily="@font/alata"
+        android:text="@string/cr_er_une_r_union"
+        android:textAlignment="center"
+        android:textColor="@color/space_cadet_blue"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appbarlayout" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/create_meeting_name_title_divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:dividerInsetStart="16dp"
+        app:dividerInsetEnd="16dp"
+        app:dividerColor="@color/space_cadet_blue"
+        app:layout_constraintTop_toBottomOf="@id/create_meeting_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/create_meeting_name_meeting_til"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:boxBackgroundColor="@color/space_cadet_blue"
+        app:boxStrokeColor="@color/space_cadet_blue"
+        app:startIconDrawable="@drawable/ic_baseline_drive_file_rename_outline_24"
+        app:layout_constraintTop_toBottomOf="@id/create_meeting_name_title_divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/create_meeting_name_meeting_tiet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColorHint="@color/black"
+            android:layout_margin="16dp"
+            android:hint="@string/entrez_le_nom_de_la_r_union"
+            android:textColor="@color/black"
+            android:fontFamily="@font/alata"
+            android:background="@color/lavender_web"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/create_meeting_participants_meeting_til"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/create_meeting_name_meeting_til"
+        app:startIconDrawable="@drawable/ic_baseline_groups_2_24"
+        app:suffixText="@string/lamzone"
+        app:suffixTextColor="@color/space_cadet_blue">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/create_meeting_name_participants_tiet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:background="@color/lavender_web"
+            android:fontFamily="@font/alata"
+            android:hint="@string/ajoutez_un_participants"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/create_meeting_room_til"
+        style="@style/Widget.MaReu.Spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="28dp"
+        android:layout_margin="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/create_meeting_participants_meeting_til"
+        app:startIconDrawable="@drawable/ic_baseline_location_on_24"
+        tools:endIconMode="dropdown_menu"
+        >
+
+        <AutoCompleteTextView
+            android:id="@+id/create_meeting_room_actv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alata"
+            android:hint="@string/choisissez_une_salle_de_r_union"
+            android:inputType="none"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/create_meeting_hour_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/choississez_une_heure_pour_la_r_union"
+        android:textAlignment="center"
+        android:fontFamily="@font/alata"
+        android:textSize="16sp"
+        android:textColor="@color/space_cadet_blue"
+        app:layout_constraintTop_toBottomOf="@id/create_meeting_room_til"
+        app:layout_constraintStart_toStartOf="@id/create_meeting_room_til"
+        app:layout_constraintEnd_toEndOf="@id/create_meeting_room_til"
+        app:layout_constraintBottom_toTopOf="@id/create_meeting_set_hour"
+        />
+
+    <ImageButton
+        android:id="@+id/create_meeting_set_hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_access_time_24_two"
+        android:background="@color/lavender_web"
+        app:tint="@color/space_cadet_blue"
+        app:layout_constraintTop_toBottomOf="@id/create_meeting_hour_tv"
+        app:layout_constraintStart_toStartOf="@id/create_meeting_room_til"
+        app:layout_constraintEnd_toEndOf="@id/create_meeting_room_til"
+        app:layout_constraintBottom_toTopOf="@id/create_meeting_create_button"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/create_meeting_create_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cr_er"
+        android:textColor="@color/lavender_web"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/create_meeting_set_hour"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
