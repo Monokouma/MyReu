@@ -1,4 +1,4 @@
-package com.despair.corp.monokouma.mafuckingreufinal.create;
+package com.despair.corp.monokouma.mafuckingreufinal.list;
 
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
