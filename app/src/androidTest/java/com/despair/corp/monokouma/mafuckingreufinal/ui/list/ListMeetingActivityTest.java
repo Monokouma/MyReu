@@ -1,16 +1,12 @@
 package com.despair.corp.monokouma.mafuckingreufinal.ui.list;
 
 import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.Espresso.pressBack;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.matcher.ViewMatchers.assertThat;
-import static androidx.test.espresso.matcher.ViewMatchers.hasChildCount;
-import static androidx.test.espresso.matcher.ViewMatchers.withChild;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
 import static org.hamcrest.Matchers.is;
 
-import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -20,11 +16,11 @@ import androidx.test.espresso.NoMatchingViewException;
 import androidx.test.espresso.UiController;
 import androidx.test.espresso.ViewAction;
 import androidx.test.espresso.ViewAssertion;
+import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 
 import com.despair.corp.monokouma.mafuckingreufinal.R;
-import com.despair.corp.monokouma.mafuckingreufinal.create.CreateMeetingActivityTest;
 import com.despair.corp.monokouma.mafuckingreufinal.create.CreateMeetingTestUtils;
 import com.despair.corp.monokouma.mafuckingreufinal.data.model.Room;
 
@@ -81,9 +77,9 @@ public class ListMeetingActivityTest {
         );
 
         onView(
-                withId(R.id.meetings_item_delete_button)
+                withId(R.id.activity_list_meeting_recycler_view)
         ).perform(
-                RecyclerViewActions.actionOnItemAtPosition(1, )
+                RecyclerViewActions.actionOnItemAtPosition(1, click())
         );
     }
 
@@ -98,7 +94,7 @@ public class ListMeetingActivityTest {
                 click()
         );
 
-        CreateMeetingTestUtils.create_meeting(meetingName, meetingParticipants, meetingRoom);
+        CreateMeetingTestUtils.createMeeting(meetingName, meetingParticipants, meetingRoom);
 
         onView(
                 withId(R.id.create_meeting_create_button)

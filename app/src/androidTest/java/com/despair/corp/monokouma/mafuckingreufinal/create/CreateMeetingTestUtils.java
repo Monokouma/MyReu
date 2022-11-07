@@ -16,7 +16,7 @@ import com.despair.corp.monokouma.mafuckingreufinal.data.model.Room;
 
 public class CreateMeetingTestUtils {
 
-    public static void create_meeting(
+    public static void createMeeting(
             @Nullable String meetingName,
             @Nullable String meetingParticipants,
             @Nullable Room meetingRoom) {
