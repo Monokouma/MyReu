@@ -17,6 +17,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        testInstrumentationRunnerArguments clearPackageData: 'true'
     }
 
     buildTypes {
@@ -24,6 +26,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
     }
     compileOptions {
         coreLibraryDesugaringEnabled true
@@ -78,6 +81,9 @@ tasks.withType(Test) {
         excludes = ['jdk.internal.*'] // Allows it to run on Java 11
     }
 }
+
+
+
 
 task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
 
