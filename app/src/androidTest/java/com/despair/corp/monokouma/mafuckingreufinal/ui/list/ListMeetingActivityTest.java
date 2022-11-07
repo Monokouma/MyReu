@@ -8,15 +8,17 @@ import static androidx.test.espresso.matcher.ViewMatchers.hasChildCount;
 import static androidx.test.espresso.matcher.ViewMatchers.withChild;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
-
 import static org.hamcrest.Matchers.is;
 
+import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.espresso.NoMatchingViewException;
+import androidx.test.espresso.UiController;
+import androidx.test.espresso.ViewAction;
 import androidx.test.espresso.ViewAssertion;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
@@ -26,6 +28,7 @@ import com.despair.corp.monokouma.mafuckingreufinal.create.CreateMeetingActivity
 import com.despair.corp.monokouma.mafuckingreufinal.create.CreateMeetingTestUtils;
 import com.despair.corp.monokouma.mafuckingreufinal.data.model.Room;
 
+import org.hamcrest.Matcher;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -80,7 +83,7 @@ public class ListMeetingActivityTest {
         onView(
                 withId(R.id.meetings_item_delete_button)
         ).perform(
-            
+                RecyclerViewActions.actionOnItemAtPosition(1, )
         );
     }
 
@@ -107,7 +110,7 @@ public class ListMeetingActivityTest {
 
 }
 
-class RecyclerViewItemCountAssertion implements ViewAssertion {
+class RecyclerViewItemCountAssertion implements ViewAssertion, ViewAction {
     private final int expectedCount;
 
     public RecyclerViewItemCountAssertion(int expectedCount) {
@@ -123,6 +126,21 @@ class RecyclerViewItemCountAssertion implements ViewAssertion {
         RecyclerView recyclerView = (RecyclerView) view;
         RecyclerView.Adapter adapter = recyclerView.getAdapter();
         assertThat(adapter.getItemCount(), is(expectedCount));
+
+    }
+
+    @Override
+    public Matcher<View> getConstraints() {
+        return null;
+    }
+
+    @Override
+    public String getDescription() {
+        return null;
+    }
+
+    @Override
+    public void perform(UiController uiController, View view) {
 
     }
 }
