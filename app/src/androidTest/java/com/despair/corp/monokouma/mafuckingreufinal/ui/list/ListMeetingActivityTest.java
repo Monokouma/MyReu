@@ -32,8 +32,5 @@ public class ListMeetingActivityTest {
         listMeetingActivity = null;
     }
 
-    @Test
-    public void test() {
-        onView(withId(R.id.activity_list_meeting_add_meeting_fab)).perform(click());
-    }
+
 }
