@@ -67,8 +67,6 @@ def openReport(htmlOutDir) {
         exec { commandLine 'open', "$reportPath/index.html" }
     }
 
-
-
 }
 
 jacoco {

@@ -1,4 +1,4 @@
-package com.despair.corp.monokouma.mafuckingreufinal.create;
+package com.despair.corp.monokouma.mafuckingreufinal.utils;
 
 import android.view.View;
 import android.widget.EditText;

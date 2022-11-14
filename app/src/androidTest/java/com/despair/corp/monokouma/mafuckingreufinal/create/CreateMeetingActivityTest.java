@@ -2,13 +2,9 @@ package com.despair.corp.monokouma.mafuckingreufinal.create;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.action.ViewActions.replaceText;
-import static androidx.test.espresso.action.ViewActions.scrollTo;
-import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.hasErrorText;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.is;
@@ -17,8 +13,6 @@ import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import android.view.View;
-
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
@@ -26,14 +20,11 @@ import androidx.test.filters.LargeTest;
 import com.despair.corp.monokouma.mafuckingreufinal.R;
 import com.despair.corp.monokouma.mafuckingreufinal.data.model.Room;
 import com.despair.corp.monokouma.mafuckingreufinal.ui.create.CreateMeetingActivity;
-import com.google.android.material.textfield.TextInputLayout;
+import com.despair.corp.monokouma.mafuckingreufinal.utils.CreateMeetingTestUtils;
+import com.despair.corp.monokouma.mafuckingreufinal.utils.EditTextErrorMatcher;
 
-import org.hamcrest.Description;
-import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -124,10 +115,7 @@ public class CreateMeetingActivityTest {
         assertTrue(activityRef.isFinishing());
 
 
-
     }
-
-
 
 }
 
