@@ -19,13 +19,13 @@ public class CreateMeetingViewState {
     @Nullable
     private final String meetingRoomError;
 
-    @NonNull
+    @Nullable
     private final Room[] meetingRooms;
 
-    @NonNull
+    @Nullable
     private final String meetingTime;
 
-    public CreateMeetingViewState(@Nullable String meetingNameError, @Nullable String meetingParticipantsError, @Nullable String meetingRoomError, @NonNull Room[] meetingRooms, @NonNull String meetingTime) {
+    public CreateMeetingViewState(@Nullable String meetingNameError, @Nullable String meetingParticipantsError, @Nullable String meetingRoomError, @Nullable Room[] meetingRooms, @Nullable String meetingTime) {
         this.meetingNameError = meetingNameError;
         this.meetingParticipantsError = meetingParticipantsError;
         this.meetingRoomError = meetingRoomError;
@@ -48,12 +48,12 @@ public class CreateMeetingViewState {
         return meetingRoomError;
     }
 
-    @NonNull
+    @Nullable
     public Room[] getMeetingRooms() {
         return meetingRooms;
     }
 
-    @NonNull
+    @Nullable
     public String getMeetingTime() {
         return meetingTime;
     }
