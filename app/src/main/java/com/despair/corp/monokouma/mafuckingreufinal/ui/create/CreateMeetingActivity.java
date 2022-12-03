@@ -40,6 +40,7 @@ public class CreateMeetingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_meeting);
         final CreateMeetingViewModel createMeetingViewModel = new ViewModelProvider(this, ViewModelFactory.getInstance()).get(CreateMeetingViewModel.class);
+
         Toolbar toolbar = findViewById(R.id.create_meeting_toolbar);
         TextInputEditText meetingNameInput = findViewById(R.id.create_meeting_name_meeting_tiet);
         TextInputEditText participantsNameInput = findViewById(R.id.create_meeting_participants_name_tiet);
@@ -74,7 +75,6 @@ public class CreateMeetingActivity extends AppCompatActivity {
         initMeetingNameEditText(createMeetingViewModel, meetingNameInput);
         createMeeting(createMeetingViewModel, createMeetingButton);
         initParticipantsEditText(createMeetingViewModel, participantsNameInput);
-
 
         createMeetingViewModel.getCreateMeetingViewStateMutableLiveData().observe(this, createMeetingViewState -> {
             initRoomAutocompleteView(createMeetingViewModel, roomInput, createMeetingViewState.getMeetingRooms());

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MaFuckingReuFinal</string>
+    <string name="app_name">MaReu</string>
     <string name="meeting_toolbar_title">Mes réunions</string>
     <string name="fab_content_description">Créer une réunion</string>
     <string name="delete_meeting">Delete meeting</string>
@@ -39,4 +39,5 @@
     <string name="meeting_running">Reunion en cours</string>
     <string name="meeting_finished">Réunion terminée.</string>
     <string name="meeting_start_at">La réunion commence dans : %s h.</string>
+    <string name="lamzon_mail">\@lamzone.fr</string>
 </resources>

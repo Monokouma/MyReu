@@ -20,7 +20,9 @@ public class ListMeetingViewState {
     @NonNull
     private final List<MeetingViewStateHourFilterItem> meetingViewStateHourFilterItems;
 
-    public ListMeetingViewState(@NonNull List<MeetingsViewStateItem> meetingsViewStateItem, @NonNull List<MeetingViewStateRoomFilterItem> meetingViewStateRoomFilterItems, @NonNull List<MeetingViewStateHourFilterItem> meetingViewStateHourFilterItems) {
+    public ListMeetingViewState(@NonNull List<MeetingsViewStateItem> meetingsViewStateItem,
+                                @NonNull List<MeetingViewStateRoomFilterItem> meetingViewStateRoomFilterItems,
+                                @NonNull List<MeetingViewStateHourFilterItem> meetingViewStateHourFilterItems) {
         this.meetingsViewStateItem = meetingsViewStateItem;
         this.meetingViewStateRoomFilterItems = meetingViewStateRoomFilterItems;
         this.meetingViewStateHourFilterItems = meetingViewStateHourFilterItems;
@@ -46,12 +48,16 @@ public class ListMeetingViewState {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ListMeetingViewState that = (ListMeetingViewState) o;
-        return meetingsViewStateItem.equals(that.meetingsViewStateItem) && meetingViewStateRoomFilterItems.equals(that.meetingViewStateRoomFilterItems) && meetingViewStateHourFilterItems.equals(that.meetingViewStateHourFilterItems);
+        return meetingsViewStateItem.equals(that.meetingsViewStateItem)
+            && meetingViewStateRoomFilterItems.equals(that.meetingViewStateRoomFilterItems)
+            && meetingViewStateHourFilterItems.equals(that.meetingViewStateHourFilterItems);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(meetingsViewStateItem, meetingViewStateRoomFilterItems, meetingViewStateHourFilterItems);
+        return Objects.hash(meetingsViewStateItem,
+            meetingViewStateRoomFilterItems,
+            meetingViewStateHourFilterItems);
     }
 
     @NonNull

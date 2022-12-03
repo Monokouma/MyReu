@@ -17,7 +17,9 @@ public class MeetingViewStateRoomFilterItem {
 
     private final boolean isSelected;
 
-    public MeetingViewStateRoomFilterItem(@NonNull Room room, @ColorInt int textColorInt, boolean isSelected) {
+    public MeetingViewStateRoomFilterItem(@NonNull Room room,
+                                          @ColorInt int textColorInt,
+                                          boolean isSelected) {
         this.room = room;
         this.textColorInt = textColorInt;
         this.isSelected = isSelected;
@@ -49,7 +51,9 @@ public class MeetingViewStateRoomFilterItem {
 
     @Override
     public int hashCode() {
-        return Objects.hash(room, textColorInt, isSelected);
+        return Objects.hash(room,
+            textColorInt,
+            isSelected);
     }
 
     @NonNull

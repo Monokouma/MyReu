@@ -64,12 +64,20 @@ public class Meeting {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Meeting meeting = (Meeting) o;
-        return meetingId == meeting.meetingId && meetingName.equals(meeting.meetingName) && meetingTime.equals(meeting.meetingTime) && meetingParticipantsList.equals(meeting.meetingParticipantsList) && meetingRoom == meeting.meetingRoom;
+        return meetingId == meeting.meetingId
+            && meetingName.equals(meeting.meetingName)
+            && meetingTime.equals(meeting.meetingTime)
+            && meetingParticipantsList.equals(meeting.meetingParticipantsList)
+            && meetingRoom == meeting.meetingRoom;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(meetingId, meetingName, meetingTime, meetingParticipantsList, meetingRoom);
+        return Objects.hash(meetingId,
+            meetingName,
+            meetingTime,
+            meetingParticipantsList,
+            meetingRoom);
     }
 
     @NonNull

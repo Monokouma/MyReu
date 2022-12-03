@@ -25,7 +25,11 @@ public class CreateMeetingViewState {
     @Nullable
     private final String meetingTime;
 
-    public CreateMeetingViewState(@Nullable String meetingNameError, @Nullable String meetingParticipantsError, @Nullable String meetingRoomError, @Nullable Room[] meetingRooms, @Nullable String meetingTime) {
+    public CreateMeetingViewState(@Nullable String meetingNameError,
+                                  @Nullable String meetingParticipantsError,
+                                  @Nullable String meetingRoomError,
+                                  @Nullable Room[] meetingRooms,
+                                  @Nullable String meetingTime) {
         this.meetingNameError = meetingNameError;
         this.meetingParticipantsError = meetingParticipantsError;
         this.meetingRoomError = meetingRoomError;
@@ -63,12 +67,19 @@ public class CreateMeetingViewState {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CreateMeetingViewState that = (CreateMeetingViewState) o;
-        return Objects.equals(meetingNameError, that.meetingNameError) && Objects.equals(meetingParticipantsError, that.meetingParticipantsError) && Objects.equals(meetingRoomError, that.meetingRoomError) && Arrays.equals(meetingRooms, that.meetingRooms) && meetingTime.equals(that.meetingTime);
+        return Objects.equals(meetingNameError, that.meetingNameError)
+            && Objects.equals(meetingParticipantsError, that.meetingParticipantsError)
+            && Objects.equals(meetingRoomError, that.meetingRoomError)
+            && Arrays.equals(meetingRooms, that.meetingRooms)
+            && meetingTime.equals(that.meetingTime);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(meetingNameError, meetingParticipantsError, meetingRoomError, meetingTime);
+        int result = Objects.hash(meetingNameError,
+            meetingParticipantsError,
+            meetingRoomError,
+            meetingTime);
         result = 31 * result + Arrays.hashCode(meetingRooms);
         return result;
     }

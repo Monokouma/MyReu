@@ -6,8 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
 
-
-
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/create_meeting_city_image"
         android:layout_width="44dp"
@@ -34,6 +32,5 @@
         app:layout_constraintTop_toTopOf="@id/create_meeting_city_image"
         tools:text="Tokyo"
         />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

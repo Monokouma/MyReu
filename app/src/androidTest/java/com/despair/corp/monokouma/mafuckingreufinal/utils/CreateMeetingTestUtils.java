@@ -65,25 +65,7 @@ public class CreateMeetingTestUtils {
             );
         }
 
-        if (meetingSchedule != null) {
 
-            onView(withId(R.id.create_meeting_create_button)).perform(click());
 
-            onView(
-                    allOf(
-                            withText("" + meetingSchedule.getHour()),
-                            withParent(withId(com.google.android.material.R.id.material_clock_face))
-                    )
-            ).perform(click());
-
-            onView(
-                    allOf(
-                            withText("" + meetingSchedule.getMinute()),
-                            withParent(withId(com.google.android.material.R.id.material_clock_face))
-                    )
-            ).perform(click());
-
-            onView(withId(com.google.android.material.R.id.material_timepicker_ok_button)).perform(click());
-        }
     }
 }

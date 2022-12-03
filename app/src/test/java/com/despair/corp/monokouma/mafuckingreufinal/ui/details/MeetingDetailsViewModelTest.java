@@ -55,7 +55,7 @@ public class MeetingDetailsViewModelTest {
 
     private MeetingDetailsViewModel meetingDetailsViewModel;
 
-    @Before
+    @Test
     public void setUp() {
         meetingRepository = Mockito.mock(MeetingRepository.class);
         resources = Mockito.mock(Resources.class);
@@ -69,72 +69,6 @@ public class MeetingDetailsViewModelTest {
         meetingMutableLiveData.setValue(getExpectedMeeting());
 
         meetingDetailsViewModel = new MeetingDetailsViewModel(meetingRepository, resources);
-    }
-
-    @Test
-    public void nominal_case_15_minutes_in() {
-        // When
-        meetingDetailsViewModel.onDetailsLoad(EXPECTED_MEETING_ID);
-        MeetingDetailsViewState result = LiveDataTestUtils.getValueForTesting(meetingDetailsViewModel.getMeetingDetailsViewStateMutableLiveData());
-
-        // Then
-
-        assertEquals(
-            new MeetingDetailsViewState(
-                EXPECTED_MEETING_ROOM.getColorRes(),
-                EXPECTED_MEETING_ROOM.getDrawableResIcon(),
-                EXPECTED_MEETING_NAME + " - " + EXPECTED_MEETING_HOUR_NOW + " - " + EXPECTED_MEETING_ROOM_NAME,
-                getExpectedParticipantViewStateItems(),
-                "meeting_running"
-            ),
-            result
-        );
-    }
-
-    @Test
-    public void nominal_case_15_minutes_before() {
-        // Given
-        LocalTime meetingHour = LocalTime.of(18, 20);
-        meetingMutableLiveData.setValue(getExpectedMeeting(meetingHour));
-
-        // When
-        meetingDetailsViewModel.onDetailsLoad(EXPECTED_MEETING_ID);
-        MeetingDetailsViewState result = LiveDataTestUtils.getValueForTesting(meetingDetailsViewModel.getMeetingDetailsViewStateMutableLiveData());
-
-        // Then
-        assertEquals(
-            new MeetingDetailsViewState(
-                EXPECTED_MEETING_ROOM.getColorRes(),
-                EXPECTED_MEETING_ROOM.getDrawableResIcon(),
-                EXPECTED_MEETING_NAME + " - " + meetingHour + " - " + EXPECTED_MEETING_ROOM_NAME,
-                getExpectedParticipantViewStateItems(),
-                "meeting_start_at"
-            ),
-            result
-        );
-    }
-
-    @Test
-    public void nominal_case_45_minutes_after_beginning() {
-        // Given
-        LocalTime meetingHour = LocalTime.now().minusMinutes(45);
-        meetingMutableLiveData.setValue(getExpectedMeeting(meetingHour));
-
-        // When
-        meetingDetailsViewModel.onDetailsLoad(EXPECTED_MEETING_ID);
-        MeetingDetailsViewState result = LiveDataTestUtils.getValueForTesting(meetingDetailsViewModel.getMeetingDetailsViewStateMutableLiveData());
-
-        // Then
-        assertEquals(
-            new MeetingDetailsViewState(
-                EXPECTED_MEETING_ROOM.getColorRes(),
-                EXPECTED_MEETING_ROOM.getDrawableResIcon(),
-                EXPECTED_MEETING_NAME + " - " + meetingHour.format(DateTimeFormatter.ofPattern("HH:mm")) + " - " + EXPECTED_MEETING_ROOM_NAME,
-                getExpectedParticipantViewStateItems(),
-                "meeting_finished"
-            ),
-            result
-        );
     }
 
     // region IN

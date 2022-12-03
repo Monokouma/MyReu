@@ -36,31 +36,21 @@ public class MeetingDetailsViewModel extends ViewModel {
                         meetingId -> meetingRepository.getMeetingsByIdLiveData(meetingId)
                 ),
                 meeting -> {
-                    final String scheduleMessage;
 
-                    LocalTime now = LocalTime.now();
-
-                    //Meeting en cours
-                    if (now.isAfter(meeting.getMeetingTime()) && now.isBefore(meeting.getMeetingTime().plusMinutes(30))) {
-                        scheduleMessage = resources.getString(R.string.meeting_running);
-                    } else if (meeting.getMeetingTime().plusMinutes(30).isBefore(now)) {
-                        //Meeting fini
-                        scheduleMessage = resources.getString(R.string.meeting_finished);
-                    } else if (now.isBefore(meeting.getMeetingTime())) {
-                        //Meeting commence dans ...
-                        String date = meeting.getMeetingTime().format(DateTimeFormatter.ofPattern("HH:mm", Locale.FRANCE));
-
-                        scheduleMessage = resources.getString(R.string.meeting_start_at, date);
-                    } else {
-                        scheduleMessage = "";
-                    }
-
-                    String meetingTitle = meeting.getMeetingName() + " - " + meeting.getMeetingTime().format(DateTimeFormatter.ofPattern("HH:mm")) + " - " + resources.getString(meeting.getMeetingRoom().getStringResName());
+                    String meetingTitle = meeting.getMeetingName()
+                        + " - "
+                        + meeting.getMeetingTime().format(DateTimeFormatter.ofPattern("HH:mm"))
+                        + " - "
+                        + resources.getString(meeting.getMeetingRoom().getStringResName());
 
                     List<ParticipantViewStateItem> participantViewStateItem = new ArrayList<>();
 
                     for (String participant : meeting.getMeetingParticipantsList()) {
-                        String participantBuild = new StringBuilder(participant).append("@lamzone.fr").toString();
+
+                        String participantBuild = new StringBuilder(participant)
+                            .append(resources.getString(R.string.lamzon_mail))
+                            .toString();
+
                         participantViewStateItem.add(new ParticipantViewStateItem(participantBuild));
                     }
 
@@ -68,8 +58,7 @@ public class MeetingDetailsViewModel extends ViewModel {
                             meeting.getMeetingRoom().getColorRes(),
                             meeting.getMeetingRoom().getDrawableResIcon(),
                             meetingTitle,
-                            participantViewStateItem,
-                            scheduleMessage
+                            participantViewStateItem
                     );
                 }
         );

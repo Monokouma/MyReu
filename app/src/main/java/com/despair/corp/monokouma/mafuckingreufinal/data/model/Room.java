@@ -29,7 +29,9 @@ public enum Room {
     @ColorRes
     private final int colorRes;
 
-    Room(@StringRes int name, @DrawableRes int iconRes, int colorRes) {
+    Room(@StringRes int name,
+         @DrawableRes int iconRes,
+         int colorRes) {
         this.name = name;
         this.iconRes = iconRes;
         this.colorRes = colorRes;

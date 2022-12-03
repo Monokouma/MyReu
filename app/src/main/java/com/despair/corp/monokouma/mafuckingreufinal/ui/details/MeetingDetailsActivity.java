@@ -20,7 +20,7 @@ public class MeetingDetailsActivity extends AppCompatActivity {
 
     private final static String ARGS_MEETINGID = "ARGS_MEETINGID";
     RecyclerView participantsRecyclerView;
-    //
+
     public static Intent navigate(Context c, int meetingId) {
         Intent intent = new Intent(c, MeetingDetailsActivity.class);
         intent.putExtra(ARGS_MEETINGID, meetingId);
@@ -35,13 +35,13 @@ public class MeetingDetailsActivity extends AppCompatActivity {
 
         ShapeableImageView meetingIcon = findViewById(R.id.meeting_details_meeting_image);
         TextView meetingName = findViewById(R.id.meeting_details_meeting_title);
-        participantsRecyclerView = findViewById(R.id.meeting_detail_participant_list);
-        final ParticipantAdapter participantAdapter = new ParticipantAdapter();
-        participantsRecyclerView.setAdapter(participantAdapter);
         TextView scheduleMessage = findViewById(R.id.meeting_detail_meeting_schedule);
         Toolbar toolbar = findViewById(R.id.meeting_detail_toolbar);
-        toolbar.setNavigationOnClickListener(v -> finish());
+        final ParticipantAdapter participantAdapter = new ParticipantAdapter();
 
+        participantsRecyclerView = findViewById(R.id.meeting_detail_participant_list);
+        participantsRecyclerView.setAdapter(participantAdapter);
+        toolbar.setNavigationOnClickListener(v -> finish());
 
         int meetingId = getIntent().getIntExtra(ARGS_MEETINGID, -1);
 
@@ -53,7 +53,6 @@ public class MeetingDetailsActivity extends AppCompatActivity {
                 meetingIcon.setImageResource(meetingDetailsViewState.getMeetingIcon());
                 meetingIcon.setBackgroundResource(meetingDetailsViewState.getMeetingBackground());
                 meetingName.setText(meetingDetailsViewState.getName());
-                scheduleMessage.setText(meetingDetailsViewState.getMeetingSchedule());
                 participantAdapter.submitList(meetingDetailsViewState.getParticipants());
             }
         });

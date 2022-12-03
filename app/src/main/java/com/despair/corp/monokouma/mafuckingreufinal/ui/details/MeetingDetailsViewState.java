@@ -21,15 +21,14 @@ public class MeetingDetailsViewState {
     @NonNull
     private final List<ParticipantViewStateItem> participants;
 
-    @NonNull
-    private final String meetingSchedule;
-
-    public MeetingDetailsViewState(int meetingBackground, int meetingIcon, @NonNull String name, @NonNull List<ParticipantViewStateItem> participants, @NonNull String meetingSchedule) {
+    public MeetingDetailsViewState(int meetingBackground,
+                                   int meetingIcon,
+                                   @NonNull String name,
+                                   @NonNull List<ParticipantViewStateItem> participants) {
         this.meetingBackground = meetingBackground;
         this.meetingIcon = meetingIcon;
         this.name = name;
         this.participants = participants;
-        this.meetingSchedule = meetingSchedule;
     }
 
     public int getMeetingBackground() {
@@ -51,11 +50,6 @@ public class MeetingDetailsViewState {
     }
 
     @NonNull
-    public String getMeetingSchedule() {
-        return meetingSchedule;
-    }
-
-    @NonNull
     @Override
     public String toString() {
         return "MeetingDetailsViewState{" +
@@ -63,7 +57,6 @@ public class MeetingDetailsViewState {
                 ", meetingIcon=" + meetingIcon +
                 ", name='" + name + '\'' +
                 ", participants='" + participants + '\'' +
-                ", meetingSchedule='" + meetingSchedule + '\'' +
                 '}';
     }
 
@@ -72,11 +65,17 @@ public class MeetingDetailsViewState {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MeetingDetailsViewState that = (MeetingDetailsViewState) o;
-        return meetingBackground == that.meetingBackground && meetingIcon == that.meetingIcon && name.equals(that.name) && participants.equals(that.participants) && meetingSchedule.equals(that.meetingSchedule);
+        return meetingBackground == that.meetingBackground
+            && meetingIcon == that.meetingIcon
+            && name.equals(that.name)
+            && participants.equals(that.participants);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(meetingBackground, meetingIcon, name, participants, meetingSchedule);
+        return Objects.hash(meetingBackground,
+            meetingIcon,
+            name,
+            participants);
     }
 }

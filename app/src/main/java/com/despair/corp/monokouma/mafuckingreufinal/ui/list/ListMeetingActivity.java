@@ -33,9 +33,9 @@ import java.time.LocalTime;
 public class ListMeetingActivity extends AppCompatActivity implements OnMeetingItemsClick, OnHourSelectedListener, OnRoomSelectedListenner {
 
     private ConstraintLayout constraintLayout;
-    RecyclerView meetingRecyclerView;
-    RecyclerView roomRecyclerView;
-    RecyclerView hourRecyclerView;
+    private RecyclerView meetingRecyclerView;
+    private RecyclerView roomRecyclerView;
+    private RecyclerView hourRecyclerView;
     private ListMeetingViewModel listMeetingViewModel;
 
     @Override

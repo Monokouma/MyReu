@@ -56,10 +56,6 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
                     MainApplication.getInstance().getResources()
             );
         }
-        //else if (modelClass.isAssignableFrom(MeetingDetailsViewModel.class)) {
-        //   return (T) new MeetingDetailsViewModel(
-        // );
-        // }
         throw new IllegalArgumentException("Unknow ViewModel");
     }
 

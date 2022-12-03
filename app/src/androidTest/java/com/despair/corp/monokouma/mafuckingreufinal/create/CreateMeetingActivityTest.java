@@ -63,7 +63,6 @@ public class CreateMeetingActivityTest {
 
         assertTrue(activityRef.isFinishing());
 
-
     }
 
     @Test
@@ -79,10 +78,6 @@ public class CreateMeetingActivityTest {
         onView(withId(R.id.create_meeting_name_meeting_tiet)).check(matches(new EditTextErrorMatcher(R.string.error_meeting_name)));
         onView(withId(R.id.create_meeting_participants_name_tiet)).check(matches(new EditTextErrorMatcher(R.string.error_participants)));
 
-      //  Pourquoi ca marche plus :(
-      //  onView(withId(R.id.create_meeting_room_actv)).check(matches(new EditTextErrorMatcher(R.string.error_room)));
-
-
         //Only meeting name is filled
         CreateMeetingTestUtils.createMeeting("foo", "", null, null);
 
@@ -91,7 +86,6 @@ public class CreateMeetingActivityTest {
         assertFalse(activityRef.isFinishing());
         onView(withId(R.id.create_meeting_name_meeting_tiet)).check(matches(not(new EditTextErrorMatcher(R.string.error_meeting_name))));
         onView(withId(R.id.create_meeting_participants_name_tiet)).check(matches(new EditTextErrorMatcher(R.string.error_participants)));
-  //     onView(withId(R.id.create_meeting_room_actv)).check(matches(not(withText(R.string.error_room))));
 
 
         //Only meeting name and meeting particpant are filled
@@ -102,7 +96,6 @@ public class CreateMeetingActivityTest {
         assertFalse(activityRef.isFinishing());
         onView(withId(R.id.create_meeting_name_meeting_tiet)).check(matches(not(new EditTextErrorMatcher(R.string.error_meeting_name))));
         onView(withId(R.id.create_meeting_participants_name_tiet)).check(matches(not(new EditTextErrorMatcher(R.string.error_participants))));
-   //     onView(withId(R.id.create_meeting_room_actv)).check(matches(not(withText(R.string.error_room))));
 
         //Full filled
         CreateMeetingTestUtils.createMeeting("foo", "bar, baz", Room.Pekin, localTime);

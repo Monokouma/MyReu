@@ -25,7 +25,6 @@ public class RoomFilterAdapter extends ListAdapter<MeetingViewStateRoomFilterIte
         this.listener = listener;
     }
 
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

@@ -60,7 +60,6 @@ public class ListMeetingViewModel extends ViewModel {
                                 selectedRoomsLiveData.getValue(),
                                 selectedHoursLiveData.getValue())
                 );
-
             }
         });
 
@@ -72,7 +71,6 @@ public class ListMeetingViewModel extends ViewModel {
                                 roomBooleanMap,
                                 selectedHoursLiveData.getValue())
                 );
-
             }
         });
 
@@ -110,12 +108,9 @@ public class ListMeetingViewModel extends ViewModel {
             ));
         }
 
-
         List<MeetingViewStateRoomFilterItem> meetingViewStateRoomFilterItems = getMeetingViewStateRoomFilterItems(selectedRooms);
 
-        // Compute hour filters state
         List<MeetingViewStateHourFilterItem> meetingViewStateHourFilterItems = getMeetingViewStateHourFilterItems(selectedHours);
-
 
         return new ListMeetingViewState(
                 meetingViewStateItems,
@@ -244,8 +239,6 @@ public class ListMeetingViewModel extends ViewModel {
     private List<MeetingViewStateHourFilterItem> getMeetingViewStateHourFilterItems(@NonNull Map<LocalTime, Boolean> selectedHours) {
         List<MeetingViewStateHourFilterItem> meetingViewStateHourFilterItems = new ArrayList<>();
 
-        boolean previousHourSelected = false;
-
         for (Map.Entry<LocalTime, Boolean> entry : selectedHours.entrySet()) {
             LocalTime localTime = entry.getKey();
             Boolean isHourSelected = entry.getValue();
@@ -255,7 +248,6 @@ public class ListMeetingViewModel extends ViewModel {
 
             @ColorRes
             int textColorRes;
-
 
             if (isHourSelected) {
                 textColorRes = R.color.white;
